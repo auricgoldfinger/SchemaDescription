@@ -1,0 +1,16 @@
+{
+  "name": "schemadescription",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-java": "mvn clean compile",
+    "build-docs": "npx redocly build-docs target/openapi/openapi.yaml --output=target/html/ubench-openapi.html",
+    "build": "npm run build-java && npm run build-docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@redocly/cli": "^1.0.0-beta.127"
+  }
+}

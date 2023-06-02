@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.example</groupId>
+	<artifactId>SchemaDescription</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>SchemaDescription</name>
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+	</properties>
+
+	<build>
+
+		<finalName>SchemaDescription</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>io.swagger.core.v3</groupId>
+					<artifactId>swagger-maven-plugin</artifactId>
+					<version>2.2.11</version>
+					<configuration>
+						<outputFileName>openapi</outputFileName>
+						<outputPath>${project.build.directory}/openapi</outputPath>
+						<outputFormat>JSONANDYAML</outputFormat>
+						<openapi31>true</openapi31>
+						<configurationFilePath>${project.basedir}/src/main/build/openapi-info.yaml</configurationFilePath>
+						<resourcePackages>
+							<package>com.example.geopoint</package>
+						</resourcePackages>
+						<prettyPrint>true</prettyPrint>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>compile</phase>
+							<goals>
+								<goal>resolve</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>io.swagger.core.v3</groupId>
+				<artifactId>swagger-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-jaxrs2</artifactId>
+			<version>2.2.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>2.2.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.24</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-web-api</artifactId>
+			<version>8.0.0</version>
+		</dependency>
+	</dependencies>
+
+
+</project>
